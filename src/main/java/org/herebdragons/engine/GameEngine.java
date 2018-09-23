@@ -1,20 +1,24 @@
 package org.herebdragons.engine;
 
+import org.herebdragons.gConfig;
+import org.herebdragons.gameobjects.Player;
 import org.herebdragons.graphics.canvas.notSoSimpleCanvas;
-import org.herebdragons.graphics.objects.Text;
-import org.herebdragons.util.Strings;
+import org.herebdragons.util.FPSCounter;
+import org.herebdragons.util.ThreadManager;
+import org.herebdragons.utils.Logger;
 import org.herebdragons.utils.FrameRate;
-
-import java.awt.*;
 
 public class GameEngine implements Runnable {
 
     private GameLoop gameLoop;
+    private WorldManager worldManager;
     private static GameEngine engine;
     private notSoSimpleCanvas canvas;
     private volatile boolean running;
     private Thread gameThread;
     private FrameRate frameRate;
+    private ThreadManager threadManager;
+
 
     public static GameEngine getInstance(notSoSimpleCanvas canvas) {
         if (engine == null)
@@ -25,36 +29,75 @@ public class GameEngine implements Runnable {
     }
 
     private GameEngine(notSoSimpleCanvas canvas) {
-        gameLoop = new GameLoop(canvas);
+
+        Logger.setLogging(gConfig.DEBUG);
+
+        Logger.log("creating Thread Manager");
+        threadManager = new ThreadManager(2);
+
+        Logger.log("Creating Canvas");
+        this.canvas = canvas;
+
+        threadManager.runTask(canvas);
+
+        Logger.log("Creating World Manager");
+        worldManager = new WorldManager();
+        worldManager.setCanvas(canvas);
+
+        Logger.log("Creating Game Loop");
+        gameLoop = new GameLoop();
+        gameLoop.setCanvas(canvas);
+        gameLoop.setWorldManager(worldManager);
+
+        Logger.log("Creating FrameDate");
+        frameRate = new FrameRate(gConfig.FRAME_RATE);
+        Logger.log(frameRate.toString());
     }
 
     public void run() {
 
-        canvas.addObject(new Text(new Dimension(200,50),new Point(30,30),frameRate.toString()));
+        Logger.log("Entering run method from GameEngine");
 
-        running = true;
+        FPSCounter fps = new FPSCounter(frameRate);
 
-        while (running){
+        worldManager.addObject(fps);
 
+        Player player = new Player();
+
+        worldManager.addObject(player);
+
+        frameRate.initialize();
+
+        while (running) {
+
+            Logger.log("Entering Game Cycle");
+            //Input
+
+            //Update
+            gameLoop.tick();
+
+
+            //Render
             gameLoop.render();
+            frameRate.calculate();
 
-            sleep(60);
-
+            sleep(frameRate.getRemainingInCyle());
+            Logger.log(frameRate.toString());
         }
 
 
     }
 
     public void start() {
-        //if (!running) {
-        //    return;
-        //}
 
+        Logger.log("Entering in Start Method of Game Engine");
         running = true;
 
-        gameThread = new Thread(this, Strings.GAME_NAME + " - Main Thread");
+        threadManager.runTask(this);
 
-        gameThread.start();
+        //gameThread = new Thread(this, Strings.GAME_NAME + " - Main Thread");
+
+        //gameThread.start();
     }
 
     public void stop() {
@@ -72,7 +115,7 @@ public class GameEngine implements Runnable {
 
     }
 
-    private void sleep(long milSec){
+    private void sleep(long milSec) {
         try {
             Thread.sleep(milSec);
         } catch (InterruptedException e) {
