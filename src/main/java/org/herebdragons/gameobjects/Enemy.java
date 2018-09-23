@@ -1,26 +1,23 @@
 package org.herebdragons.gameobjects;
 
-
 import org.herebdragons.graphics.objects.Rectangle;
 
 import java.awt.*;
 
-public class Player extends AbstractActor {
+public class Enemy extends AbstractActor {
 
-    public Player() {
-        object = new Rectangle(new Dimension(100, 100), new Point(100, 100));
-        ((Rectangle) object).fill(new Color(255, 0, 0, 255));
+    public Enemy() {
+        object = new Rectangle(new Dimension(500+500,100+100),new Point(500,500));
+        ((Rectangle) object).fill(new Color(0, 255, 0, 255));
     }
-
 
     public void tick() {
         //System.out.println(this + " - has been ticked");
-        object.move(20, 0);
     }
 
     @Override
     public String toString() {
-        return "Player {" +
+        return "Enemy{" +
                 object.getDimension() +
                 " " + object.getPosition() + "}";
     }

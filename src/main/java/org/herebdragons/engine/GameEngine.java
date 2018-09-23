@@ -1,12 +1,17 @@
 package org.herebdragons.engine;
 
 import org.herebdragons.gConfig;
+import org.herebdragons.gameobjects.Enemy;
 import org.herebdragons.gameobjects.Player;
 import org.herebdragons.graphics.canvas.notSoSimpleCanvas;
+import org.herebdragons.graphics.objects.Rectangle;
+import org.herebdragons.graphics.objects.notSoSimpleObject;
 import org.herebdragons.util.FPSCounter;
 import org.herebdragons.util.ThreadManager;
 import org.herebdragons.utils.Logger;
 import org.herebdragons.utils.FrameRate;
+
+import java.awt.*;
 
 public class GameEngine implements Runnable {
 
@@ -66,6 +71,14 @@ public class GameEngine implements Runnable {
 
         worldManager.addObject(player);
 
+        Enemy box = new Enemy();
+
+        worldManager.addObject(box);
+
+        notSoSimpleObject object = new Rectangle(new Dimension(500,100),new Point(500,500));
+
+        canvas.addObject(object);
+
         frameRate.initialize();
 
         while (running) {
@@ -95,9 +108,6 @@ public class GameEngine implements Runnable {
 
         threadManager.runTask(this);
 
-        //gameThread = new Thread(this, Strings.GAME_NAME + " - Main Thread");
-
-        //gameThread.start();
     }
 
     public void stop() {

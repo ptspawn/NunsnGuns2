@@ -16,7 +16,6 @@ import java.awt.*;
 public class NunsnGuns {
 
     private static Dimension DEFAULT_SIZE = new Dimension(800, 600);
-    private static boolean FULLSCREEN = false;
 
     public static void main(String[] args) {
 
@@ -26,7 +25,7 @@ public class NunsnGuns {
 
         Canvas canvas;
 
-        if (FULLSCREEN) {
+        if (gConfig.FULLSCREEN) {
             canvas = CanvasFactory.createCanvas(Strings.GAME_NAME);
         } else {
             canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, DEFAULT_SIZE, WindowBehaviour.EXIT_ON_CLOSE, false);
@@ -87,7 +86,7 @@ public class NunsnGuns {
             System.exit(1);
         }
 
-        FULLSCREEN = ns.get("fullScreen");
+        //FULLSCREEN = ns.get("fullScreen");
 
         if (ns.get("height") != null)
             DEFAULT_SIZE.height = ns.get("height");

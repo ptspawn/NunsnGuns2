@@ -9,10 +9,6 @@ public abstract class AbstractActor implements Actor{
 
     protected notSoSimpleObject object;
 
-    public void render(Graphics g) {
-        object.render(g);
-    }
-
     public notSoSimpleObject getObject() {
         return object;
     }
