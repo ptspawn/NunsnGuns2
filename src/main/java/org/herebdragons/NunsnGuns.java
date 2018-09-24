@@ -15,8 +15,6 @@ import java.awt.*;
 
 public class NunsnGuns {
 
-    private static Dimension DEFAULT_SIZE = new Dimension(800, 600);
-
     public static void main(String[] args) {
 
         //parseCommands(args);
@@ -28,7 +26,7 @@ public class NunsnGuns {
         if (gConfig.FULLSCREEN) {
             canvas = CanvasFactory.createCanvas(Strings.GAME_NAME);
         } else {
-            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, DEFAULT_SIZE, WindowBehaviour.EXIT_ON_CLOSE, false);
+            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, gConfig.DEFAULT_DIMENSION, WindowBehaviour.EXIT_ON_CLOSE, false);
         }
 
         canvas.setObjectManager(new ObjectManager());
@@ -69,14 +67,14 @@ public class NunsnGuns {
                 .nargs("?")
                 .metavar("width")
                 .type(Integer.class)
-                .setDefault(DEFAULT_SIZE.width)
+                .setDefault(gConfig.DEFAULT_DIMENSION.width)
                 .help("width when windowed");
         windowed.addArgument("height")
                 .required(false)
                 .nargs("?")
                 .metavar("height")
                 .type(Integer.class)
-                .setDefault(DEFAULT_SIZE.height)
+                .setDefault(gConfig.DEFAULT_DIMENSION.height)
                 .help("height when windowed");
 
         try {
@@ -89,10 +87,10 @@ public class NunsnGuns {
         //FULLSCREEN = ns.get("fullScreen");
 
         if (ns.get("height") != null)
-            DEFAULT_SIZE.height = ns.get("height");
+            gConfig.DEFAULT_DIMENSION.height = ns.get("height");
 
         if (ns.get("height") != null)
-            DEFAULT_SIZE.width = ns.get("width");
+            gConfig.DEFAULT_DIMENSION.width = ns.get("width");
 
     }
 
