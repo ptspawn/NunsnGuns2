@@ -1,4 +1,4 @@
-package org.herebdragons.util;
+package org.herebdragons.utils;
 
 public class Strings {
 

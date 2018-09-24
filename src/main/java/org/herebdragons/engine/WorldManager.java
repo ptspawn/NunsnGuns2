@@ -2,12 +2,10 @@ package org.herebdragons.engine;
 
 
 import org.herebdragons.gameobjects.Actor;
-import org.herebdragons.util.FPSCounter;
 import org.herebdragons.graphics.canvas.notSoSimpleCanvas;
 import org.herebdragons.graphics.objects.Text;
 import org.herebdragons.graphics.objects.notSoSimpleObject;
 
-import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 

@@ -4,12 +4,13 @@ import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.*;
 import org.herebdragons.engine.GameEngine;
-import org.herebdragons.graphics.canvas.Canvas;
+
 import org.herebdragons.graphics.canvas.CanvasFactory;
 import org.herebdragons.graphics.enums.WindowBehaviour;
 import org.herebdragons.graphics.objects.ObjectManager;
-import org.herebdragons.util.Strings;
+import org.herebdragons.graphics.canvas.Canvas;
 import org.herebdragons.utils.Logger;
+import org.herebdragons.utils.Strings;
 
 import java.awt.*;
 

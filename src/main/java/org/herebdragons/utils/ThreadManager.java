@@ -1,8 +1,5 @@
-package org.herebdragons.util;
+package org.herebdragons.utils;
 
-
-import com.sun.xml.internal.bind.v2.model.annotation.RuntimeAnnotationReader;
-import org.herebdragons.utils.Logger;
 
 import java.util.LinkedList;
 import java.util.List;

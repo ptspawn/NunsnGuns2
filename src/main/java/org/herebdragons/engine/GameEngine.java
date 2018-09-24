@@ -7,8 +7,8 @@ import org.herebdragons.gameobjects.Player;
 import org.herebdragons.graphics.canvas.notSoSimpleCanvas;
 import org.herebdragons.graphics.objects.Rectangle;
 import org.herebdragons.graphics.objects.notSoSimpleObject;
-import org.herebdragons.util.FPSCounter;
-import org.herebdragons.util.ThreadManager;
+import org.herebdragons.utils.FPSCounter;
+import org.herebdragons.utils.ThreadManager;
 import org.herebdragons.utils.Logger;
 import org.herebdragons.utils.FrameRate;
 

@@ -1,4 +1,4 @@
-package org.herebdragons.util;
+package org.herebdragons.utils;
 
 import org.herebdragons.gConfig;
 import org.herebdragons.gameobjects.AbstractActor;
