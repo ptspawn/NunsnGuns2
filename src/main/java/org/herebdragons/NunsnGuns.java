@@ -7,11 +7,12 @@ import org.herebdragons.engine.GameEngine;
 
 
 import org.herebdragons.graphics.canvas.CanvasFactory;
+import org.herebdragons.graphics.canvas.notSoSimpleCanvas;
+import org.herebdragons.graphics.enums.RendererType;
 import org.herebdragons.graphics.enums.WindowBehaviour;
 import org.herebdragons.graphics.objects.ObjectManager;
 import org.herebdragons.utils.Logger;
 import org.herebdragons.utils.Strings;
-import org.herebdragons.graphics.canvas.Canvas;
 
 public class NunsnGuns {
 
@@ -21,12 +22,12 @@ public class NunsnGuns {
 
         Logger.setLogging(gConfig.DEBUG);
 
-        Canvas canvas;
+        notSoSimpleCanvas canvas;
 
         if (gConfig.FULLSCREEN) {
-            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME);
+            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, RendererType.SWING);
         } else {
-            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, gConfig.DEFAULT_DIMENSION, WindowBehaviour.EXIT_ON_CLOSE, false);
+            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, gConfig.DEFAULT_DIMENSION, RendererType.SWING);
         }
 
         canvas.setObjectManager(new ObjectManager());
