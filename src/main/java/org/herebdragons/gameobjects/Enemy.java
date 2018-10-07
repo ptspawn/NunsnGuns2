@@ -8,7 +8,7 @@ public class Enemy extends AbstractActor {
 
     public Enemy() {
         object = new Rectangle(new Dimension(500+500,100+100),new Point(500,500));
-        ((Rectangle) object).fill(new Color(0, 255, 0, 255));
+        //((Rectangle) object).fill(new Color(0, 255, 0, 255));
     }
 
     public void tick() {

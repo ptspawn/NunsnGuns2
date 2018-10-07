@@ -25,9 +25,9 @@ public class NunsnGuns {
         notSoSimpleCanvas canvas;
 
         if (gConfig.FULLSCREEN) {
-            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, RendererType.SWING);
+            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, RendererType.JAVA_2D);
         } else {
-            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, gConfig.DEFAULT_DIMENSION, RendererType.SWING);
+            canvas = CanvasFactory.createCanvas(Strings.GAME_NAME, gConfig.DEFAULT_DIMENSION, RendererType.JAVA_2D);
         }
 
         canvas.setObjectManager(new ObjectManager());

@@ -9,7 +9,7 @@ public class Player extends AbstractActor {
 
     public Player() {
         object = new Rectangle(new Dimension(100, 100), new Point(100, 100));
-        ((Rectangle) object).fill(new Color(255, 0, 0, 255));
+     //   ((Rectangle) object).fill(new Color(255, 0, 0, 255));
     }
 
 
