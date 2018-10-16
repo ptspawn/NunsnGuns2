@@ -3,8 +3,7 @@ package org.herebdragons.utils;
 import org.herebdragons.gConfig;
 import org.herebdragons.gameobjects.AbstractActor;
 import org.herebdragons.graphics.objects.Text;
-import org.herebdragons.graphics.objects.notSoSimpleObject;
-import org.herebdragons.utils.FrameRate;
+import org.herebdragons.utils.FrameRate.FrameRate;
 
 import java.awt.*;
 

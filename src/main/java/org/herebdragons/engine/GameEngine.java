@@ -10,7 +10,7 @@ import org.herebdragons.graphics.objects.notSoSimpleObject;
 import org.herebdragons.utils.FPSCounter;
 import org.herebdragons.utils.ThreadManager;
 import org.herebdragons.utils.Logger;
-import org.herebdragons.utils.FrameRate;
+import org.herebdragons.utils.FrameRate.FrameRate;
 
 import java.awt.*;
 
